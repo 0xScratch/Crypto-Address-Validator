@@ -1,9 +1,9 @@
 export const Main = () => {
     return (
         <>
-            <div>
+            <div className="flex flex-col">
                 <h1 className="text-white font-bold text-4xl mb-8">Crypto Address Validator</h1>
-                <div className="bg-[#2f2f2f] px-8 py-8 rounded-3xl">
+                <div className="bg-[#2f2f2f] px-8 py-8 rounded-3xl mb-10">
                     <div>
                         <div className="mb-5">
                             <label htmlFor="blockchain" className="text-white text-base font-semibold">Select Blockchain</label>
@@ -27,6 +27,9 @@ export const Main = () => {
                     <button className="mt-6 bg-white text-gray-500 rounded-3xl w-full py-2 font-semibold text-sm">
                         Check Address
                     </button>
+                </div>
+                <div className="m-auto">
+                    <p className="text-white font-bold">Result:</p>
                 </div>
             </div>
         </>
