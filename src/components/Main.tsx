@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export const Main = () => {
     return (
         <>
@@ -31,6 +33,7 @@ export const Main = () => {
                 <div className="m-auto">
                     <p className="text-white font-bold">Result:</p>
                 </div>
+                <Image src="/logos/bitcoin.png" alt="bitcoin" width={20} height={20}/>
             </div>
         </>
     );
