@@ -34,6 +34,8 @@ export const Main = () => {
                     <p className="text-white font-bold">Result:</p>
                 </div>
                 <Image src="/logos/bitcoin.png" alt="bitcoin" width={20} height={20}/>
+                <Image src="/logos/ethereum.png" alt="ethereum" width={20} height={20}/>
+                <Image src="/logos/polkadot.png" alt="polkadot" width={20} height={20}/>
             </div>
         </>
     );
