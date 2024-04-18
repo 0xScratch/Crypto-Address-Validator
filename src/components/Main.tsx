@@ -1,6 +1,26 @@
 'use client'
 
+import { isValidPolkadotAddress } from '../polkadot/try'
+
 export const Main = () => {
+    const checkAddress = () => {
+        const blockchain = (document.getElementById('blockchain') as HTMLSelectElement).value;  
+        const address = document.getElementById('address') as HTMLInputElement;
+
+        if (address.value === '') {
+            alert('Please enter an address')
+            return
+        }
+        
+        if (blockchain === 'Polkadot') {
+            const result = isValidPolkadotAddress(address.value);
+            console.log(result)
+        } else {
+            alert('Blockchain not supported')
+            return
+        }
+    }
+
     return (
         <>
             <div className="flex flex-col">
@@ -26,7 +46,7 @@ export const Main = () => {
                                 />
                         </div>
                     </div>
-                    <button type="button" className="mt-6 bg-white text-gray-500 rounded-3xl w-full py-2 font-semibold text-sm hover:bg-black hover:text-white hover:font-semibold transition duration-200">
+                    <button type="button" className="mt-6 bg-white text-gray-500 rounded-3xl w-full py-2 font-semibold text-sm hover:bg-black hover:text-white hover:font-semibold transition duration-200" onClick={checkAddress}>
                         Check Address
                     </button>
                 </div>
