@@ -1,6 +1,6 @@
 'use client'
 
-import { isValidPolkadotAddress } from '../polkadot/try'
+import { isValidPolkadotAddress } from '../blockchains/polkadot/try'
 
 export const Main = () => {
     const checkAddress = () => {
