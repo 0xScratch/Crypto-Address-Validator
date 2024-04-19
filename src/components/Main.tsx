@@ -1,10 +1,12 @@
 'use client'
 
 import { isValidPolkadotAddress } from '../blockchains/polkadot/polkadot'
+import { isValidETHAddress } from '../blockchains/ethereum/ethereum'
 
 export const Main = () => {
     const checkAddress = () => {
         const blockchain = (document.getElementById('blockchain') as HTMLSelectElement).value;  
+        console.log(blockchain)
         const address = document.getElementById('address') as HTMLInputElement;
 
         if (address.value === '') {
@@ -12,8 +14,11 @@ export const Main = () => {
             return
         }
         
-        if (blockchain === 'Polkadot') {
+        if (blockchain === 'polkadot') {
             const result = isValidPolkadotAddress(address.value);
+            console.log(result)
+        } else if (blockchain === 'ethereum') {
+            const result = isValidETHAddress(address.value)
             console.log(result)
         } else {
             alert('Blockchain not supported')
@@ -32,7 +37,7 @@ export const Main = () => {
                             <select name="blockchain" id="blockchain" className="bg-[#2f2f2f] text-gray-200 text-sm rounded-3xl w-full px-2 py-2 shadow-gray-600 shadow-md mt-3 cursor-pointer">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
-                                <option value="Polkadot">Polkadot</option>
+                                <option value="polkadot">Polkadot</option>
                             </select>
                         </div>
                         <div>
