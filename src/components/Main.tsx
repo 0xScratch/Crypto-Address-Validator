@@ -14,19 +14,38 @@ export const Main = () => {
             alert('Please enter an address')
             return
         }
+
+        let result = false
         
         if (blockchain === 'polkadot') {
-            const result = isValidPolkadotAddress(address.value);
+            result = isValidPolkadotAddress(address.value);
             console.log(result)
         } else if (blockchain === 'ethereum') {
-            const result = isValidETHAddress(address.value)
+            result = isValidETHAddress(address.value)
             console.log(result)
         } else if (blockchain === 'bitcoin') {
-            const result = isValidBitcoinAddress(address.value)
+            result = isValidBitcoinAddress(address.value)
             console.log(result)
+        }
+
+        if (result) {
+            const validResult = document.getElementById('valid-result');
+            if (validResult) {
+                validResult.classList.remove('hidden');
+            }
+
+            setTimeout(() => {
+                validResult?.classList.add('hidden');
+            }, 5000)
         } else {
-            alert('Blockchain not supported')
-            return
+            const invalidResult = document.getElementById('invalid-result');
+            if (invalidResult) {
+                invalidResult.classList.remove('hidden');
+            }
+
+            setTimeout(() => {
+                invalidResult?.classList.add('hidden');
+            }, 5000)
         }
     }
 
@@ -59,8 +78,11 @@ export const Main = () => {
                         Check Address
                     </button>
                 </div>
-                <div className="m-auto">
-                    <p className="text-white font-bold">Result:</p>
+                <div id='valid-result' className="m-auto text-2xl hidden">
+                    <p className="text-green-500 font-bold">Valid Address</p>
+                </div>
+                <div id='invalid-result' className="m-auto text-2xl hidden">
+                    <span className="text-red-600 font-bold">Invalid Address</span>
                 </div>
             </div>
         </>
