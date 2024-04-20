@@ -1,8 +1,6 @@
 'use client'
 
-import { isValidPolkadotAddress } from '../blockchains/polkadot/polkadot'
-import { isValidETHAddress } from '../blockchains/ethereum/ethereum'
-import { isValidBitcoinAddress } from '../blockchains/bitcoin/bitcoin'
+import './index'
 
 export const Main = () => {
     const checkAddress = () => {
