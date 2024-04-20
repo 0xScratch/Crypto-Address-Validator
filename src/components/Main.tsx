@@ -2,6 +2,7 @@
 
 import { isValidPolkadotAddress } from '../blockchains/polkadot/polkadot'
 import { isValidETHAddress } from '../blockchains/ethereum/ethereum'
+import { isValidBitcoinAddress } from '../blockchains/bitcoin/bitcoin'
 
 export const Main = () => {
     const checkAddress = () => {
@@ -19,6 +20,9 @@ export const Main = () => {
             console.log(result)
         } else if (blockchain === 'ethereum') {
             const result = isValidETHAddress(address.value)
+            console.log(result)
+        } else if (blockchain === 'bitcoin') {
+            const result = isValidBitcoinAddress(address.value)
             console.log(result)
         } else {
             alert('Blockchain not supported')
