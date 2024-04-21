@@ -1,6 +1,6 @@
 'use client'
 
-import './index'
+import { validators } from './index'
 
 export const Main = () => {
     const checkAddress = () => {
@@ -16,13 +16,13 @@ export const Main = () => {
         let result = false
         
         if (blockchain === 'polkadot') {
-            result = isValidPolkadotAddress(address.value);
+            result = validators[blockchain](address.value);
             console.log(result)
         } else if (blockchain === 'ethereum') {
-            result = isValidETHAddress(address.value)
+            result = validators[blockchain](address.value)
             console.log(result)
         } else if (blockchain === 'bitcoin') {
-            result = isValidBitcoinAddress(address.value)
+            result = validators[blockchain](address.value)
             console.log(result)
         }
 
@@ -55,7 +55,7 @@ export const Main = () => {
                     <div>
                         <div className="mb-7">
                             <label htmlFor="blockchain" className="text-white text-base font-semibold">Select Blockchain</label>
-                            <select name="blockchain" id="blockchain" className="bg-[#2f2f2f] text-gray-200 text-sm rounded-3xl w-full px-2 py-2 shadow-gray-600 shadow-md mt-3 cursor-pointer">
+                            <select name="blockchain" id="blockchain" className="bg-[#2f2f2f] text-gray-200 text-sm rounded-3xl w-full px-1 py-2 shadow-gray-600 shadow-md mt-3 cursor-pointer outline-none">
                                 <option value="bitcoin">Bitcoin</option>
                                 <option value="ethereum">Ethereum</option>
                                 <option value="polkadot">Polkadot</option>
